@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Nava Bharatha Yuva Chaitanya Samiti</title>
+  <meta name="description" content="Contact Nava Bharatha Yuva Chaitanya Samiti — reach out to volunteer, donate, or partner with us. Together we build a new India." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>" />
+  <style>
+    .donate-section {
+      background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+      padding: 80px 0;
+    }
+    .donate-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,153,51,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .donate-card:hover { transform: translateY(-5px); border-color: rgba(255,153,51,0.8); }
+    .donate-card .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #FFD700;
+      margin: 0.75rem 0;
+    }
+    .donate-card p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    .donate-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .upi-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      max-width: 400px;
+      margin: 2rem auto 0;
+    }
+    .upi-id {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 1px;
+      margin: 0.5rem 0;
+      font-family: monospace;
+    }
+    @media (max-width: 768px) {
+      .donate-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-om">🪔</div>
+  <div class="loader-text">Nava Bharatha Yuva Chaitanya Samiti</div>
+</div>
+
+<!-- ── Navbar ── -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">ॐ</div>
+      <div class="nav-logo-text">
+        <div class="name">Nava Bharatha Yuva</div>
+        <div class="tagline">Chaitanya Samiti</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="hamburger" role="button" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span>Contact</span>
+    </div>
+    <h1>Get in Touch</h1>
+    <p>Whether you want to volunteer, partner, donate, or simply know more — our doors are always open. Come, join the movement.</p>
+  </div>
+</div>
+
+<!-- ── Contact Section ── -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal">Contact Us</h2>
+    <span class="section-divider reveal"></span>
+    <p class="section-subtitle reveal">Reach out to us — we'd love to hear from you and explore how we can work together</p>
+
+    <div class="contact-grid">
+
+      <!-- Info Card -->
+      <div class="contact-info-card reveal">
+        <h3>📍 Find Us</h3>
+
+        <div class="cinfo-item">
+          <div class="cinfo-icon">📍</div>
+          <div>
+            <div class="cinfo-label">Address</div>
+            <div class="cinfo-value">[Door No, Street Name]<br>[Locality, City]<br>[State] — [PIN Code], India</div>
+          </div>
+        </div>
+
+        <div class="cinfo-item">
+          <div class="cinfo-icon">📞</div>
+          <div>
+            <div class="cinfo-label">Phone</div>
+            <div class="cinfo-value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+
+        <div class="cinfo-item">
+          <div class="cinfo-icon">✉️</div>
+          <div>
+            <div class="cinfo-label">Email</div>
+            <div class="cinfo-value">contact@navabharathayuva.org</div>
+          </div>
+        </div>
+
+        <div class="cinfo-item">
+          <div class="cinfo-icon">🕐</div>
+          <div>
+            <div class="cinfo-label">Working Hours</div>
+            <div class="cinfo-value">Mon–Sat: 9:00 AM – 6:00 PM<br>Sundays: 10:00 AM – 2:00 PM</div>
+          </div>
+        </div>
+
+        <div class="cinfo-item">
+          <div class="cinfo-icon">🏛️</div>
+          <div>
+            <div class="cinfo-label">Registration</div>
+            <div class="cinfo-value">Trust Reg. No: [XXXXXXXXXX]<br>PAN: [XXXXXXXXXX]<br>80G / 12A: [Status]</div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div style="margin-top:1.5rem;">
+          <div class="cinfo-label" style="margin-bottom:0.75rem;">Follow Us</div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form reveal">
+        <h3>Send Us a Message</h3>
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">I want to...</label>
+            <select id="subject" name="subject">
+              <option value="">— Select a reason —</option>
+              <option value="volunteer">Become a Volunteer</option>
+              <option value="donate">Make a Donation</option>
+              <option value="partner">Explore Partnership</option>
+              <option value="program">Know About Programs</option>
+              <option value="media">Media / Press Inquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" placeholder="Tell us how you'd like to get involved or any questions you have..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;padding:0.9rem;">
+            🙏 Send Message
+          </button>
+          <p style="font-size:0.8rem;color:#999;text-align:center;margin-top:0.75rem;">We usually respond within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map Placeholder -->
+    <div class="map-wrap reveal">
+      <div>
+        <div style="font-size:3rem;margin-bottom:0.5rem;">🗺️</div>
+        <h3 style="color:#fff;font-size:1.2rem;">Find Us on the Map</h3>
+        <p>Replace this section with a Google Maps embed using your actual address.</p>
+        <p style="margin-top:0.5rem;font-size:0.85rem;opacity:0.5;">
+          &lt;iframe src="https://maps.google.com/maps?q=YOUR+ADDRESS&amp;output=embed"&gt;&lt;/iframe&gt;
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Join as Volunteer ── -->
+<section class="section-light" id="volunteer">
+  <div class="container">
+    <h2 class="section-title reveal">Become a Volunteer</h2>
+    <span class="section-divider reveal"></span>
+    <p class="section-subtitle reveal">Vivekananda said, "Give to the world the best you have." Share your time, talent, and skills with us.</p>
+
+    <div class="pillars-grid" style="margin-top:2rem;">
+      <div class="pillar-card reveal">
+        <span class="pillar-icon">🧑‍🏫</span>
+        <h3>Teaching Volunteer</h3>
+        <p>Help students in our free education camps. Any subject knowledge is welcome — Mathematics, Science, Telugu, English, or Computer skills.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon">🏃</span>
+        <h3>Event Volunteer</h3>
+        <p>Help organize, manage, and execute our programs — from health camps to cultural festivals. Leadership and coordination skills are a big plus.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <span class="pillar-icon">💻</span>
+        <h3>Digital Volunteer</h3>
+        <p>Help us with social media, content creation, photography, videography, website management, or designing posters for our programs.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="#contact-form" class="btn btn-primary">Apply to Volunteer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Donate Section ── -->
+<section class="donate-section" id="donate">
+  <div class="container">
+    <h2 class="section-title reveal" style="color:#fff;">Support Our Mission</h2>
+    <span class="section-divider reveal"></span>
+    <p class="section-subtitle reveal" style="color:rgba(255,255,255,0.7);">
+      Your donation funds free education, health camps, and youth programs. Every rupee serves a purpose — and a person.
+    </p>
+
+    <div class="donate-grid">
+      <div class="donate-card reveal">
+        <div style="font-size:2rem;">📖</div>
+        <div class="amount">₹500</div>
+        <p>Supports free stationery &amp; study materials for one student for a month</p>
+      </div>
+      <div class="donate-card reveal">
+        <div style="font-size:2rem;">🏥</div>
+        <div class="amount">₹1,000</div>
+        <p>Covers medicines &amp; basic diagnostics for 5 patients at a health camp</p>
+      </div>
+      <div class="donate-card reveal">
+        <div style="font-size:2rem;">⭐</div>
+        <div class="amount">₹5,000</div>
+        <p>Sponsors a full program event — from venue to materials to volunteers</p>
+      </div>
+    </div>
+
+    <!-- UPI Details -->
+    <div class="upi-box reveal">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">📱</div>
+      <h3 style="color:#fff;margin-bottom:0.25rem;">Donate via UPI</h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:0.75rem;">Scan or use the UPI ID below</p>
+      <div class="upi-id">[your-upi-id@bank]</div>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:0.5rem;">
+        Also accepts: PhonePe · Google Pay · Paytm · BHIM UPI
+      </p>
+      <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;">
+          Bank: [Bank Name] | A/C: [Account No] | IFSC: [IFSC Code]<br>
+          Account Name: Nava Bharatha Yuva Chaitanya Samiti
+        </p>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:1.5rem;color:rgba(255,255,255,0.4);font-size:0.85rem;">
+      Donations are eligible for 80G tax exemption (if applicable). Please contact us for a receipt.
+    </p>
+  </div>
+</section>
+
+<!-- ── Quote ── -->
+<section style="background:linear-gradient(135deg,#FF9933,#E8751A);padding:60px 0;text-align:center;">
+  <div class="container">
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;color:#fff;max-width:700px;margin:0 auto;">
+      "If you have faith in all the three hundred and thirty millions of your mythological gods, and in all the gods which foreigners have now and again introduced into your midst, and still have no faith in yourselves, there is no salvation for you."
+    </p>
+    <p style="color:#fff;opacity:0.8;margin-top:1.5rem;letter-spacing:2px;text-transform:uppercase;font-size:0.85rem;">— Swami Vivekananda</p>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <div class="nav-logo-icon" style="background:linear-gradient(135deg,#FF9933,#FFD700);">ॐ</div>
+          <div class="nav-logo-text">
+            <div class="name">Nava Bharatha Yuva</div>
+            <div class="tagline">Chaitanya Samiti</div>
+          </div>
+        </div>
+        <p>Together we serve, together we rise — Nava Bharatha Yuva Chaitanya Samiti.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">▶️</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="philosophy.html">Philosophy</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="#volunteer">Become a Volunteer</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="programs.html">Join a Program</a></li>
+          <li><a href="contact.html">Partner With Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>[Your City, State, India]</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span>+91 XXXXX XXXXX</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">✉️</span>
+          <span>contact@navabharathayuva.org</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2024 Nava Bharatha Yuva Chaitanya Samiti. All rights reserved. Made with <span>❤️</span> for a New India.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

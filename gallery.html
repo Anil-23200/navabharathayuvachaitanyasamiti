@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Nava Bharatha Yuva Chaitanya Samiti</title>
+  <meta name="description" content="Photo gallery of Nava Bharatha Yuva Chaitanya Samiti events — education camps, health drives, cultural programs, tree plantation and community service." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>" />
+  <style>
+    /* Gallery specific overrides */
+    .gallery-item {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .gitem-bg {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      min-height: 180px;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover .gitem-bg { transform: scale(1.07); }
+    .gitem-footer {
+      background: rgba(26,26,46,0.85);
+      color: #fff;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gitem-cat {
+      background: #FF9933;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 50px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-loader">
+  <div class="loader-om">🪔</div>
+  <div class="loader-text">Nava Bharatha Yuva Chaitanya Samiti</div>
+</div>
+
+<!-- ── Navbar ── -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">ॐ</div>
+      <div class="nav-logo-text">
+        <div class="name">Nava Bharatha Yuva</div>
+        <div class="tagline">Chaitanya Samiti</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" role="button" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="sep">›</span>
+      <span>Gallery</span>
+    </div>
+    <h1>Our Gallery</h1>
+    <p>Moments of service, joy, learning and community — captured in pictures. Every photo is a story of Karma Yoga in action.</p>
+  </div>
+</div>
+
+<!-- ── Gallery ── -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal">Moments in Service</h2>
+    <span class="section-divider reveal"></span>
+
+    <!-- Filter Buttons -->
+    <div class="gallery-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Events</button>
+      <button class="filter-btn" data-filter="education">📖 Education</button>
+      <button class="filter-btn" data-filter="health">🏥 Health</button>
+      <button class="filter-btn" data-filter="cultural">🎭 Cultural</button>
+      <button class="filter-btn" data-filter="environment">🌱 Environment</button>
+      <button class="filter-btn" data-filter="community">🤝 Community</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item span2" data-cat="education">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#FF9933,#E8751A);">📖</div>
+        <div class="gitem-footer">
+          <span>Free Education Camp 2023</span>
+          <span class="gitem-cat">Education</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="health">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#1A1A2E,#16213E);">🩺</div>
+        <div class="gitem-footer">
+          <span>Medical Camp — Village Outreach</span>
+          <span class="gitem-cat">Health</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="cultural">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#FFD700,#FFA500);">🪔</div>
+        <div class="gitem-footer">
+          <span>Vivekananda Jayanti 2024</span>
+          <span class="gitem-cat">Cultural</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="health">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#8B0000,#C0392B);">🩸</div>
+        <div class="gitem-footer">
+          <span>Blood Donation Drive</span>
+          <span class="gitem-cat">Health</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="environment">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#1a6b28,#27ae60);">🌳</div>
+        <div class="gitem-footer">
+          <span>Tree Plantation Drive 2023</span>
+          <span class="gitem-cat">Environment</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="education">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#2c3e50,#FF9933);">🎓</div>
+        <div class="gitem-footer">
+          <span>Career Guidance Seminar</span>
+          <span class="gitem-cat">Education</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="cultural">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#6c3483,#a93226);">🎭</div>
+        <div class="gitem-footer">
+          <span>Cultural Youth Fest</span>
+          <span class="gitem-cat">Cultural</span>
+        </div>
+      </div>
+
+      <div class="gallery-item span2" data-cat="community">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#1A1A2E,#FF9933);">🤝</div>
+        <div class="gitem-footer">
+          <span>Community Service Drive — 2023</span>
+          <span class="gitem-cat">Community</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="education">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6);">💻</div>
+        <div class="gitem-footer">
+          <span>Digital Literacy Camp</span>
+          <span class="gitem-cat">Education</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="cultural">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#FF9933,#FFD700);">🧘</div>
+        <div class="gitem-footer">
+          <span>International Yoga Day</span>
+          <span class="gitem-cat">Cultural</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="community">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#16213E,#0f3460);">🎁</div>
+        <div class="gitem-footer">
+          <span>Relief Distribution — Flood Victims</span>
+          <span class="gitem-cat">Community</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-cat="health">
+        <div class="gitem-bg" style="background:linear-gradient(135deg,#0d6b46,#16a085);">🦷</div>
+        <div class="gitem-footer">
+          <span>Dental Hygiene Awareness Camp</span>
+          <span class="gitem-cat">Health</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Upload Note -->
+    <div style="background:#FFF8F0;border:2px dashed #FF9933;border-radius:12px;padding:2rem;text-align:center;margin-top:2.5rem;" class="reveal">
+      <div style="font-size:2.5rem;margin-bottom:0.75rem;">📸</div>
+      <h3 style="margin-bottom:0.5rem;">Add Your Photos Here</h3>
+      <p style="color:#777;font-size:0.95rem;">Replace the emoji placeholders with real event photos. Simply add your images to the <strong>images/</strong> folder and update the <code>src</code> attributes in this file.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="reveal">Be Part of Our Next Event</h2>
+    <p class="reveal">Want to volunteer at our next program or feature your moment of service in our gallery? Reach out to us!</p>
+    <div class="cta-buttons reveal">
+      <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      <a href="programs.html" class="btn btn-gold">View Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem;">
+          <div class="nav-logo-icon" style="background:linear-gradient(135deg,#FF9933,#FFD700);">ॐ</div>
+          <div class="nav-logo-text">
+            <div class="name">Nava Bharatha Yuva</div>
+            <div class="tagline">Chaitanya Samiti</div>
+          </div>
+        </div>
+        <p>Capturing moments of selfless service — because every act of Karma Yoga deserves to be remembered.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📸</a>
+          <a href="#" class="social-link">▶️</a>
+          <a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="philosophy.html">Philosophy</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="programs.html">Free Education</a></li>
+          <li><a href="programs.html">Health Camps</a></li>
+          <li><a href="programs.html">Youth Leadership</a></li>
+          <li><a href="programs.html">Cultural Events</a></li>
+          <li><a href="programs.html">Tree Plantation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>[Your City, State, India]</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span>+91 XXXXX XXXXX</span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">✉️</span>
+          <span>contact@navabharathayuva.org</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2024 Nava Bharatha Yuva Chaitanya Samiti. All rights reserved. Made with <span>❤️</span> for a New India.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
