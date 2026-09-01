@@ -8,41 +8,347 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>" />
   <style>
-    /* Gallery specific overrides */
+    /* ═══════════════════════════════════════
+       MARQUEE TICKER
+    ═══════════════════════════════════════ */
+    .marquee-wrapper {
+      background: linear-gradient(90deg, #1A1A2E, #16213E, #1A1A2E);
+      border-top: 2px solid #FF9933;
+      border-bottom: 2px solid #FF9933;
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .marquee-label {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: linear-gradient(135deg, #FF9933, #FFD700);
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      box-shadow: 6px 0 16px rgba(255,153,51,0.4);
+    }
+    .marquee-track {
+      display: inline-block;
+      animation: marqueeScroll 28s linear infinite;
+      padding-left: 200px;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-track span {
+      display: inline-block;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-right: 3rem;
+      letter-spacing: 0.5px;
+    }
+    .marquee-track span .dot {
+      color: #FF9933;
+      font-size: 1.2rem;
+      vertical-align: middle;
+      margin-right: 0.4rem;
+    }
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════
+       HERO CAROUSEL
+    ═══════════════════════════════════════ */
+    .carousel-section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #1A1A2E;
+    }
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.77, 0, 0.18, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-slide-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12rem;
+      transition: transform 8s ease;
+      transform: scale(1.05);
+    }
+    .carousel-slide:hover .carousel-slide-bg { transform: scale(1.12); }
+    .carousel-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.4) 100%);
+    }
+    .carousel-slide-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      padding-bottom: 4rem;
+    }
+    .carousel-slide-badge {
+      display: inline-block;
+      background: rgba(255,153,51,0.9);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+    }
+    .carousel-slide-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .carousel-slide-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+    }
+
+    /* Carousel Controls */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,153,51,0.85);
+      border: none;
+      color: #fff;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s, transform 0.3s;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .carousel-btn:hover {
+      background: #FF9933;
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-btn.prev { left: 1.5rem; }
+    .carousel-btn.next { right: 1.5rem; }
+
+    /* Carousel Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .carousel-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s, transform 0.3s, width 0.3s;
+      padding: 0;
+    }
+    .carousel-dot.active {
+      background: #FF9933;
+      width: 28px;
+      border-radius: 5px;
+      transform: scale(1);
+    }
+
+    /* Carousel Thumbnails */
+    .carousel-thumbs {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      background: #16213E;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .carousel-thumbs::-webkit-scrollbar { display: none; }
+    .carousel-thumb {
+      width: 72px; height: 52px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s, transform 0.3s;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .carousel-thumb.active { border-color: #FF9933; transform: scale(1.08); }
+    .carousel-thumb:hover   { border-color: rgba(255,153,51,0.6); }
+
+    /* ═══════════════════════════════════════
+       GALLERY GRID — ENHANCED
+    ═══════════════════════════════════════ */
     .gallery-item {
       cursor: pointer;
       display: flex;
       flex-direction: column;
       overflow: hidden;
       position: relative;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.14);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 48px rgba(255,153,51,0.25);
     }
     .gitem-bg {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3.5rem;
-      min-height: 180px;
-      transition: transform 0.3s ease;
+      font-size: 3.8rem;
+      min-height: 190px;
+      transition: transform 0.4s ease;
+      position: relative;
     }
-    .gallery-item:hover .gitem-bg { transform: scale(1.07); }
+    .gallery-item:hover .gitem-bg { transform: scale(1.08); }
+
+    /* Shine sweep on hover */
+    .gitem-bg::after {
+      content: '';
+      position: absolute;
+      top: -100%; left: -100%;
+      width: 60%; height: 200%;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+      transition: left 0.6s ease;
+    }
+    .gallery-item:hover .gitem-bg::after { left: 200%; }
+
     .gitem-footer {
-      background: rgba(26,26,46,0.85);
+      background: rgba(26,26,46,0.92);
       color: #fff;
-      padding: 0.6rem 1rem;
+      padding: 0.7rem 1rem;
       font-size: 0.85rem;
       font-weight: 700;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      backdrop-filter: blur(4px);
     }
     .gitem-cat {
-      background: #FF9933;
+      background: linear-gradient(135deg, #FF9933, #FFD700);
       color: #fff;
-      font-size: 0.7rem;
-      padding: 0.15rem 0.6rem;
+      font-size: 0.68rem;
+      padding: 0.18rem 0.65rem;
       border-radius: 50px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* Glowing border animation */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      padding: 2px;
+      background: linear-gradient(135deg, #FF9933, #FFD700, #FF9933);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.35s;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .gallery-item:hover::before { opacity: 1; }
+
+    /* Gallery Section Heading */
+    .gallery-section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .gallery-section-heading .sub-label {
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #FF9933;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    /* Stats strip */
+    .gallery-stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1.5rem 0;
+      background: linear-gradient(135deg, #FFF8F0, #fff);
+      border-top: 3px solid #FF9933;
+      border-bottom: 3px solid #FF9933;
+      margin: 2.5rem 0;
+      flex-wrap: wrap;
+    }
+    .gstat {
+      text-align: center;
+    }
+    .gstat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       font-weight: 700;
+      color: #FF9933;
+    }
+    .gstat-label {
+      font-size: 0.78rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .carousel-slide { height: 380px; }
+      .carousel-btn { width: 38px; height: 38px; font-size: 1rem; }
+      .carousel-slide-title { font-size: 1.4rem; }
+      .gallery-stats-strip { gap: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .carousel-slide { height: 300px; }
+      .carousel-thumb { width: 56px; height: 42px; font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -68,6 +374,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="programs.html">Programs</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="hamburger" role="button" aria-label="Toggle menu">
@@ -84,16 +391,138 @@
       <span class="sep">›</span>
       <span>Gallery</span>
     </div>
-    <h1>Our Gallery</h1>
+    <h1>📸 Our Gallery</h1>
     <p>Moments of service, joy, learning and community — captured in pictures. Every photo is a story of Karma Yoga in action.</p>
   </div>
 </div>
 
-<!-- ── Gallery ── -->
+<!-- ════════════════════════════════════════
+     MARQUEE TICKER
+════════════════════════════════════════ -->
+<div class="marquee-wrapper">
+  <div class="marquee-label">🔴 Live Updates</div>
+  <div class="marquee-track">
+    <span><span class="dot">✦</span> Free Education Camp 2024 — 300+ students benefited!</span>
+    <span><span class="dot">✦</span> Vivekananda Jayanti Celebrations — Jan 12, 2024</span>
+    <span><span class="dot">✦</span> Blood Donation Drive — 120 units collected 🩸</span>
+    <span><span class="dot">✦</span> Tree Plantation — 500 saplings planted 🌳</span>
+    <span><span class="dot">✦</span> International Yoga Day 2024 — Yoga for All 🧘</span>
+    <span><span class="dot">✦</span> Medical Camp — 400+ patients examined 🩺</span>
+    <span><span class="dot">✦</span> Cultural Youth Fest — Celebrating Heritage 🎭</span>
+    <span><span class="dot">✦</span> Flood Relief Drive — Supporting Communities 🤝</span>
+    <!-- duplicate for seamless loop -->
+    <span><span class="dot">✦</span> Free Education Camp 2024 — 300+ students benefited!</span>
+    <span><span class="dot">✦</span> Vivekananda Jayanti Celebrations — Jan 12, 2024</span>
+    <span><span class="dot">✦</span> Blood Donation Drive — 120 units collected 🩸</span>
+    <span><span class="dot">✦</span> Tree Plantation — 500 saplings planted 🌳</span>
+    <span><span class="dot">✦</span> International Yoga Day 2024 — Yoga for All 🧘</span>
+    <span><span class="dot">✦</span> Medical Camp — 400+ patients examined 🩺</span>
+    <span><span class="dot">✦</span> Cultural Youth Fest — Celebrating Heritage 🎭</span>
+    <span><span class="dot">✦</span> Flood Relief Drive — Supporting Communities 🤝</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     HERO CAROUSEL
+════════════════════════════════════════ -->
+<div class="carousel-section">
+  <div class="carousel-slides" id="carouselSlides">
+
+    <!-- Slide 1 -->
+    <div class="carousel-slide">
+      <div class="carousel-slide-bg" style="background:linear-gradient(135deg,#FF9933,#E8751A);">📖</div>
+      <div class="carousel-slide-overlay"></div>
+      <div class="carousel-slide-content">
+        <span class="carousel-slide-badge">📖 Education</span>
+        <h2 class="carousel-slide-title">Free Education Camp 2023</h2>
+        <p class="carousel-slide-sub">Empowering 300+ students with free tuition, career guidance & competitive exam coaching in rural areas.</p>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide">
+      <div class="carousel-slide-bg" style="background:linear-gradient(135deg,#FFD700,#FFA500);">🪔</div>
+      <div class="carousel-slide-overlay"></div>
+      <div class="carousel-slide-content">
+        <span class="carousel-slide-badge">🎭 Cultural</span>
+        <h2 class="carousel-slide-title">Vivekananda Jayanti 2024</h2>
+        <p class="carousel-slide-sub">Celebrating the birth anniversary of Swami Vivekananda with youth cultural programs and spiritual discourses.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide">
+      <div class="carousel-slide-bg" style="background:linear-gradient(135deg,#1a6b28,#27ae60);">🌳</div>
+      <div class="carousel-slide-overlay"></div>
+      <div class="carousel-slide-content">
+        <span class="carousel-slide-badge">🌱 Environment</span>
+        <h2 class="carousel-slide-title">Tree Plantation Drive 2023</h2>
+        <p class="carousel-slide-sub">500+ saplings planted across villages — because protecting nature is Karma Yoga for the planet.</p>
+      </div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="carousel-slide">
+      <div class="carousel-slide-bg" style="background:linear-gradient(135deg,#1A1A2E,#FF9933);">🤝</div>
+      <div class="carousel-slide-overlay"></div>
+      <div class="carousel-slide-content">
+        <span class="carousel-slide-badge">🤝 Community</span>
+        <h2 class="carousel-slide-title">Community Service Drive — 2023</h2>
+        <p class="carousel-slide-sub">Reaching the last mile — clothing drives, food distribution, and community welfare in underserved areas.</p>
+      </div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="carousel-slide">
+      <div class="carousel-slide-bg" style="background:linear-gradient(135deg,#8B0000,#C0392B);">🩸</div>
+      <div class="carousel-slide-overlay"></div>
+      <div class="carousel-slide-content">
+        <span class="carousel-slide-badge">🏥 Health</span>
+        <h2 class="carousel-slide-title">Blood Donation Drive</h2>
+        <p class="carousel-slide-sub">120+ units of blood donated — every drop is a gift of life, every donor a hero of Karma Yoga.</p>
+      </div>
+    </div>
+
+  </div><!-- end .carousel-slides -->
+
+  <!-- Prev / Next -->
+  <button class="carousel-btn prev" id="carouselPrev" aria-label="Previous">&#8592;</button>
+  <button class="carousel-btn next" id="carouselNext" aria-label="Next">&#8594;</button>
+
+  <!-- Dots -->
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
+
+<!-- Thumbnail Strip -->
+<div class="carousel-thumbs" id="carouselThumbs">
+  <div class="carousel-thumb active" style="background:linear-gradient(135deg,#FF9933,#E8751A);" data-index="0">📖</div>
+  <div class="carousel-thumb" style="background:linear-gradient(135deg,#FFD700,#FFA500);" data-index="1">🪔</div>
+  <div class="carousel-thumb" style="background:linear-gradient(135deg,#1a6b28,#27ae60);" data-index="2">🌳</div>
+  <div class="carousel-thumb" style="background:linear-gradient(135deg,#1A1A2E,#FF9933);" data-index="3">🤝</div>
+  <div class="carousel-thumb" style="background:linear-gradient(135deg,#8B0000,#C0392B);" data-index="4">🩸</div>
+</div>
+
+<!-- ════════════════════════════════════════
+     GALLERY STATS STRIP
+════════════════════════════════════════ -->
+<div class="gallery-stats-strip">
+  <div class="gstat"><div class="gstat-num">12+</div><div class="gstat-label">Events Captured</div></div>
+  <div class="gstat"><div class="gstat-num">500+</div><div class="gstat-label">Photos</div></div>
+  <div class="gstat"><div class="gstat-num">5</div><div class="gstat-label">Categories</div></div>
+  <div class="gstat"><div class="gstat-num">2019–2024</div><div class="gstat-label">Years of Service</div></div>
+</div>
+
+<!-- ════════════════════════════════════════
+     GALLERY GRID
+════════════════════════════════════════ -->
 <section>
   <div class="container">
-    <h2 class="section-title reveal">Moments in Service</h2>
-    <span class="section-divider reveal"></span>
+    <div class="gallery-section-heading reveal">
+      <span class="sub-label">📸 Visual Stories</span>
+      <h2 class="section-title">Moments in Service</h2>
+      <span class="section-divider"></span>
+      <p class="section-subtitle">Every image tells a story of selfless action — Karma Yoga captured in colour and light</p>
+    </div>
 
     <!-- Filter Buttons -->
     <div class="gallery-filters reveal">
@@ -204,10 +633,10 @@
         </div>
       </div>
 
-    </div>
+    </div><!-- end .gallery-grid -->
 
     <!-- Upload Note -->
-    <div style="background:#FFF8F0;border:2px dashed #FF9933;border-radius:12px;padding:2rem;text-align:center;margin-top:2.5rem;" class="reveal">
+    <div style="background:#FFF8F0;border:2px dashed #FF9933;border-radius:14px;padding:2rem;text-align:center;margin-top:2.5rem;" class="reveal">
       <div style="font-size:2.5rem;margin-bottom:0.75rem;">📸</div>
       <h3 style="margin-bottom:0.5rem;">Add Your Photos Here</h3>
       <p style="color:#777;font-size:0.95rem;">Replace the emoji placeholders with real event photos. Simply add your images to the <strong>images/</strong> folder and update the <code>src</code> attributes in this file.</p>
@@ -294,5 +723,93 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<!-- ════════════════════════════════════════
+     CAROUSEL SCRIPT
+════════════════════════════════════════ -->
+<script>
+(function () {
+  const slides   = document.querySelectorAll('.carousel-slide');
+  const track    = document.getElementById('carouselSlides');
+  const dotsWrap = document.getElementById('carouselDots');
+  const thumbs   = document.querySelectorAll('.carousel-thumb');
+  let current    = 0;
+  let autoTimer  = null;
+  const total    = slides.length;
+
+  /* Build dots */
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i + 1));
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function updateUI(idx) {
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
+  }
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    updateUI(current);
+    resetAuto();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() { autoTimer = setInterval(next, 4000); }
+  function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+
+  document.getElementById('carouselNext').addEventListener('click', next);
+  document.getElementById('carouselPrev').addEventListener('click', prev);
+
+  thumbs.forEach(t => {
+    t.addEventListener('click', () => goTo(parseInt(t.dataset.index)));
+  });
+
+  /* Keyboard support */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
+  });
+
+  /* Touch / swipe support */
+  let touchStartX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+
+  updateUI(0);
+  startAuto();
+})();
+
+/* Gallery filter */
+(function () {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items      = document.querySelectorAll('.gallery-item[data-cat]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      items.forEach(item => {
+        const show = (f === 'all' || item.dataset.cat === f);
+        item.style.display = show ? '' : 'none';
+        if (show) {
+          item.style.animation = 'fadeInUp 0.4s ease both';
+          setTimeout(() => { item.style.animation = ''; }, 500);
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

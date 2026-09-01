@@ -31,6 +31,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="programs.html" class="active">Programs</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="hamburger" role="button" aria-label="Toggle menu">
@@ -58,6 +59,7 @@
     <div class="prog-tabs">
       <button class="prog-tab active" data-target="prog-education">📖 Education</button>
       <button class="prog-tab" data-target="prog-health">🏥 Health</button>
+      <button class="prog-tab" data-target="prog-blood">🩸 Blood Drive</button>
       <button class="prog-tab" data-target="prog-cultural">🎭 Cultural</button>
       <button class="prog-tab" data-target="prog-environment">🌱 Environment</button>
       <button class="prog-tab" data-target="prog-leadership">💡 Leadership</button>
@@ -127,31 +129,63 @@
         </div>
       </div>
 
-      <!-- Right: Photo Upload -->
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from education camp events</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
 
-          <!-- Upload Zone -->
-          <div class="upload-zone" id="upload-education" data-program="education">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+          <div class="prog-slider-container" data-program="education">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#FF9933,#E8751A);">📖</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Weekend Free Tuition Session</h4>
+                  <p>Volunteers teaching maths & science to rural students.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/education-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#2c3e50,#FF9933);">🎓</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Career Guidance & Motivation Seminar</h4>
+                  <p>Click to watch key highlights of guest lectures.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6);">📚</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Distribution of Free Notebooks & Books</h4>
+                  <p>Distributing essential study material to Class 10 students.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
 
-          <!-- Photo Preview Grid -->
-          <div class="photo-preview-grid" id="preview-education">
-            <!-- Uploaded photos appear here -->
-          </div>
+          <!-- Dot pagination -->
+          <div class="prog-slider-dots" id="dots-education"></div>
 
-          <div class="upload-actions" id="actions-education" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('education')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-education">0 photos</span>
+          <!-- Developer Upload Guide Note -->
+          <div class="dev-guide-box">
+            <h4>💡 Developer Media Guide:</h4>
+            <p>To add real images & videos: Place files in <code>images/</code> or <code>videos/</code> folder, then insert <code>&lt;img src="images/photo.jpg"&gt;</code> or <code>data-video="videos/sample.mp4"</code> inside any slide!</p>
           </div>
         </div>
       </div>
@@ -220,24 +254,57 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from health camp events</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-health" data-program="health">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="health">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1A1A2E,#16213E);">🩺</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>General Health Check-up Camp</h4>
+                  <p>Doctors examining patients in village outreach camp.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/health-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#0d6b46,#16a085);">🦷</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Dental & Hygiene Awareness Drive</h4>
+                  <p>Demonstrating oral hygiene practices to villagers.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#E8751A,#1A1A2E);">💊</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Free Medicine Distribution Counter</h4>
+                  <p>Distributing prescribed medicines free of charge.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-health"></div>
-          <div class="upload-actions" id="actions-health" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('health')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-health">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-health"></div>
         </div>
       </div>
     </div>
@@ -305,24 +372,57 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from blood donation drive events</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-blood" data-program="blood">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="blood">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#8B0000,#C0392B);">🩸</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Mega Voluntary Blood Donation Camp</h4>
+                  <p>Youth volunteers donating blood at Red Cross center.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/blood-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#C0392B,#FF9933);">📽️</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Donor Testimonials & Awareness Reel</h4>
+                  <p>Watch how young donors inspire the community to save lives.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1A1A2E,#8B0000);">🎖️</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Certificate & Medal Honor for Donors</h4>
+                  <p>Honoring donors for their noble act of Karma Yoga.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-blood"></div>
-          <div class="upload-actions" id="actions-blood" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('blood')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-blood">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-blood"></div>
         </div>
       </div>
     </div>
@@ -390,24 +490,57 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from cultural &amp; spiritual events</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-cultural" data-program="cultural">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="cultural">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#FFD700,#FFA500);">🪔</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Vivekananda Jayanti 2024 Celebration</h4>
+                  <p>Floral tribute and lamp lighting ceremony.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/cultural-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#FF9933,#FFD700);">🧘</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>International Yoga Day Performance</h4>
+                  <p>Group yoga and meditation session by youth volunteers.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#6c3483,#a93226);">🎭</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Youth Cultural Fest Drama</h4>
+                  <p>Stage drama showcasing Swami Vivekananda's life lessons.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-cultural"></div>
-          <div class="upload-actions" id="actions-cultural" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('cultural')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-cultural">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-cultural"></div>
         </div>
       </div>
     </div>
@@ -475,24 +608,57 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from tree plantation drives</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-environment" data-program="environment">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="environment">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1a6b28,#27ae60);">🌳</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Mass Plantation Drive 2023</h4>
+                  <p>Planting 500+ saplings along village school grounds.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/tree-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#27ae60,#FF9933);">🌿</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Green Warrior Adoption Journey</h4>
+                  <p>Watch how saplings grew into flourishing trees.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1A1A2E,#1a6b28);">🍃</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Environmental Awareness Rally</h4>
+                  <p>Students & youth marching for a greener tomorrow.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-environment"></div>
-          <div class="upload-actions" id="actions-environment" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('environment')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-environment">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-environment"></div>
         </div>
       </div>
     </div>
@@ -560,24 +726,57 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from leadership &amp; skill development sessions</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-leadership" data-program="leadership">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="leadership">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1A1A2E,#FF9933);">💡</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Leadership & Soft Skills Workshop</h4>
+                  <p>Interactive group discussions on public speaking & confidence.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/leadership-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6);">💻</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Digital Literacy Class Highlights</h4>
+                  <p>Practical computer training session for village youth.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#FF9933,#16213E);">🏆</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Skill Certificate Distribution</h4>
+                  <p>Awarding certificates of completion to participants.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-leadership"></div>
-          <div class="upload-actions" id="actions-leadership" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('leadership')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-leadership">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-leadership"></div>
         </div>
       </div>
     </div>
@@ -645,37 +844,72 @@
         </div>
       </div>
 
+      <!-- Right: Moving Media Carousel (View Only) -->
       <div class="prog-photos reveal">
-        <div class="photo-upload-card">
-          <div class="photo-upload-header">
-            <h3>📸 Program Photos</h3>
-            <p>Upload photos from relief &amp; community service activities</p>
+        <div class="prog-media-card">
+          <div class="prog-media-header">
+            <h3>🎬 Program Gallery Showcase</h3>
+            <span class="view-tag">👁️ View Only</span>
           </div>
-          <div class="upload-zone" id="upload-relief" data-program="relief">
-            <div class="upload-icon">📁</div>
-            <p class="upload-main">Drag &amp; drop photos here</p>
-            <p class="upload-sub">or click to browse files</p>
-            <p class="upload-formats">JPG, PNG, WEBP — up to 10MB each</p>
-            <input type="file" class="file-input" multiple accept="image/*" />
+
+          <div class="prog-slider-container" data-program="relief">
+            <div class="prog-slider-track">
+              <!-- Slide 1: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#16213E,#0f3460);">🎁</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Flood Relief Kit Distribution</h4>
+                  <p>Distributing essential food & grocery packets to affected families.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Video -->
+              <div class="prog-slide-item" data-type="video" data-video="videos/relief-demo.mp4">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#1A1A2E,#FF9933);">🤝</div>
+                <div class="video-play-btn">▶</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge video">🎥 VIDEO CLIP</span>
+                  <h4>Disaster Relief Volunteer Response</h4>
+                  <p>Emergency response team providing on-ground assistance.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Photo -->
+              <div class="prog-slide-item" data-type="photo">
+                <div class="prog-slide-media" style="background:linear-gradient(135deg,#0d6b46,#16a085);">🧹</div>
+                <div class="prog-slide-overlay"></div>
+                <div class="prog-slide-caption">
+                  <span class="media-type-badge">📷 PHOTO</span>
+                  <h4>Swachh Bharat Cleanliness Drive</h4>
+                  <p>Community sanitation & cleanliness drive by youth members.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <button class="prog-slider-btn prev" aria-label="Previous slide">‹</button>
+            <button class="prog-slider-btn next" aria-label="Next slide">›</button>
           </div>
-          <div class="photo-preview-grid" id="preview-relief"></div>
-          <div class="upload-actions" id="actions-relief" style="display:none;">
-            <button class="btn-clear-photos" onclick="clearPhotos('relief')">🗑️ Clear All</button>
-            <span class="photo-count" id="count-relief">0 photos</span>
-          </div>
+
+          <div class="prog-slider-dots" id="dots-relief"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Lightbox ── -->
+<!-- ── Lightbox Modal Viewer ── -->
 <div id="lightbox" class="lb-overlay" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()">✕</button>
   <button class="lb-prev" onclick="event.stopPropagation();lbNav(-1)">‹</button>
   <button class="lb-next" onclick="event.stopPropagation();lbNav(1)">›</button>
-  <img id="lb-img" src="" alt="Program Photo" />
-  <div id="lb-caption" class="lb-caption"></div>
+  <div class="lb-content-wrap" onclick="event.stopPropagation()">
+    <div id="lb-media-wrap"></div>
+    <div id="lb-caption" class="lb-caption"></div>
+  </div>
 </div>
 
 <!-- ── CTA ── -->
@@ -718,6 +952,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="programs.html">Programs</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>

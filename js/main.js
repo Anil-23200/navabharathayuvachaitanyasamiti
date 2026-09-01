@@ -54,7 +54,7 @@ if (hamburger && navLinks) {
 
 // ── Vivekananda Quotes Rotator ───────────
 const quotes = [
-  { text: "Arise, Awake, and Stop Not till the Goal is Reached.", },
+  { text: "Arise, Awake, and Stop Not till the Goal is Reached." },
   { text: "Take risks in your life. If you win, you can lead; if you lose, you can guide." },
   { text: "You have to grow from the inside out. None can teach you, none can make you spiritual. There is no other teacher but your own soul." },
   { text: "In a day, when you don't come across any problems — you can be sure that you are travelling in a wrong path." },
@@ -69,6 +69,9 @@ const quotes = [
 (function initQuoteRotator() {
   const textEl = document.getElementById('quote-text');
   const dotsEl = document.getElementById('quote-dots');
+  const prevBtn = document.getElementById('quotePrev');
+  const nextBtn = document.getElementById('quoteNext');
+  const container = document.querySelector('.quote-container');
   if (!textEl || !dotsEl) return;
 
   let current = 0;
@@ -83,18 +86,27 @@ const quotes = [
   });
 
   function goTo(index) {
-    current = index;
+    current = (index + quotes.length) % quotes.length;
     textEl.classList.add('fade');
     setTimeout(() => {
-      textEl.textContent = `"${quotes[index].text}"`;
+      textEl.textContent = `"${quotes[current].text}"`;
       textEl.classList.remove('fade');
-    }, 300);
+    }, 250);
     document.querySelectorAll('.quote-dot').forEach((d, i) => {
-      d.classList.toggle('active', i === index);
+      d.classList.toggle('active', i === current);
     });
   }
 
-  function next() { goTo((current + 1) % quotes.length); }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetInterval(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetInterval(); });
+
+  if (container) {
+    container.addEventListener('mouseenter', () => clearInterval(interval));
+    container.addEventListener('mouseleave', () => resetInterval());
+  }
 
   function resetInterval() {
     clearInterval(interval);

@@ -1,6 +1,6 @@
 /* =========================================
    Programs Page — Dedicated Styles
-   Photo upload UI, program sections, tabs
+   Program media carousels, sections, tabs, lightbox
 ========================================= */
 
 /* ── Program Tab Bar ───────────────────── */
@@ -153,175 +153,224 @@
 }
 .prog-highlights ul li:last-child { border: none; }
 
-/* ── Photo Upload Card ─────────────────── */
-.photo-upload-card {
+
+/* ═══════════════════════════════════════════
+   PROGRAM MEDIA CAROUSEL (DEVELOPER READY)
+════════════════════════════════════════════ */
+.prog-media-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 1.75rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow);
   border-top: 4px solid var(--gold);
 }
 
-.photo-upload-header {
-  margin-bottom: 1.25rem;
+.prog-media-header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.photo-upload-header h3 {
+.prog-media-header h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.25rem;
-}
-.photo-upload-header p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-/* ── Upload Zone ───────────────────────── */
-.upload-zone {
-  border: 2.5px dashed #D4A017;
-  border-radius: 12px;
-  padding: 2rem 1rem;
-  text-align: center;
-  cursor: pointer;
-  transition: border-color 0.3s, background 0.3s, transform 0.2s;
-  position: relative;
-  background: #FFFDF0;
-}
-
-.upload-zone:hover,
-.upload-zone.dragover {
-  border-color: var(--saffron);
-  background: rgba(255,153,51,0.05);
-  transform: scale(1.01);
-}
-
-.upload-zone.dragover {
-  border-color: var(--saffron);
-  background: rgba(255,153,51,0.08);
-  box-shadow: 0 0 0 4px rgba(255,153,51,0.2);
-}
-
-.upload-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-.upload-main {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 0.25rem;
-}
-.upload-sub {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-.upload-formats {
-  font-size: 0.75rem;
-  color: #AAA;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.prog-media-header .view-tag {
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Hidden file input — covers entire zone */
-.file-input {
-  position: absolute;
-  inset: 0;
+/* Slider Container */
+.prog-slider-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  background: var(--dark);
+}
+
+.prog-slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.prog-slide-item {
+  min-width: 100%;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.prog-slide-media {
   width: 100%;
   height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
-}
-
-/* ── Photo Preview Grid ────────────────── */
-.photo-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.preview-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  transition: transform 0.5s ease;
   position: relative;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--light-gray);
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.2s;
 }
-.preview-thumb:hover { transform: scale(1.03); }
-.preview-thumb img {
+
+/* Support for Developer Image & Video elements */
+.prog-slide-media img,
+.prog-slide-media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.thumb-remove {
-  position: absolute;
-  top: 4px; right: 4px;
-  width: 22px; height: 22px;
-  background: rgba(26,26,46,0.85);
-  border: none;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 0.7rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s;
-  z-index: 3;
+.prog-slide-item:hover .prog-slide-media {
+  transform: scale(1.06);
 }
-.preview-thumb:hover .thumb-remove { opacity: 1; }
 
-.thumb-overlay {
+.prog-slide-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26,26,46,0.55);
-  color: #fff;
-  font-size: 1.5rem;
+  background: linear-gradient(to top, rgba(26,26,46,0.85) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.prog-slide-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1rem 1.25rem;
+  color: var(--white);
+  z-index: 2;
+  pointer-events: none;
+}
+.prog-slide-caption .media-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: var(--saffron);
+  margin-bottom: 0.3rem;
+}
+.prog-slide-caption .media-type-badge.video {
+  background: #E74C3C;
+}
+.prog-slide-caption h4 {
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+.prog-slide-caption p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Play Button Overlay for Video Slides */
+.video-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: rgba(231, 76, 60, 0.9);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.2s;
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s, background 0.3s;
+  z-index: 2;
+  pointer-events: none;
 }
-.preview-thumb:hover .thumb-overlay { opacity: 1; }
+.prog-slide-item:hover .video-play-btn {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: #E74C3C;
+}
 
-/* ── Upload Actions ────────────────────── */
-.upload-actions {
+/* Slider Controls */
+.prog-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26,26,46,0.7);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.3s, transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.prog-slider-btn:hover {
+  background: var(--saffron);
+  border-color: var(--saffron);
+}
+.prog-slider-btn.prev { left: 0.75rem; }
+.prog-slider-btn.next { right: 0.75rem; }
+
+.prog-slider-dots {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 0.85rem;
+}
+.prog-slider-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+.prog-slider-dot.active {
+  background: var(--saffron);
+  transform: scale(1.3);
+}
+
+/* Developer Note Box */
+.dev-guide-box {
+  background: #FFF8F0;
+  border: 2px dashed #FF9933;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: #555;
+}
+.dev-guide-box h4 {
+  color: #1A1A2E;
+  margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid #EEE;
+  gap: 0.4rem;
 }
-
-.btn-clear-photos {
-  background: none;
-  border: 1px solid #DDD;
-  color: #999;
-  font-size: 0.8rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 50px;
-  cursor: pointer;
-  font-family: 'Lato', sans-serif;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
-}
-.btn-clear-photos:hover {
-  color: #C0392B;
-  border-color: #C0392B;
-  background: rgba(192,57,43,0.06);
-}
-
-.photo-count {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--saffron);
+.dev-guide-box code {
+  background: rgba(255,153,51,0.15);
+  color: #E8751A;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.83rem;
 }
 
 /* ── Program Divider ───────────────────── */
@@ -344,9 +393,18 @@
 }
 .lb-overlay.open { display: flex; }
 
-.lb-overlay img {
+.lb-content-wrap {
   max-width: 90vw;
   max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lb-overlay img, .lb-overlay video {
+  max-width: 90vw;
+  max-height: 75vh;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.5);
@@ -390,8 +448,8 @@
 .lb-prev:hover, .lb-next:hover { background: rgba(255,153,51,0.5); }
 
 .lb-caption {
-  color: rgba(255,255,255,0.7);
-  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
   margin-top: 1rem;
   text-align: center;
 }
@@ -404,8 +462,8 @@
 }
 
 @media (max-width: 600px) {
-  .photo-preview-grid { grid-template-columns: repeat(2, 1fr); }
   .prog-meta-grid { grid-template-columns: 1fr; }
   .prog-tabs { justify-content: flex-start; }
   .prog-tab { font-size: 0.8rem; padding: 0.8rem 0.9rem; }
+  .prog-slide-item { height: 250px; }
 }
